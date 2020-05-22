@@ -6,6 +6,12 @@ START_TEST(test_tap_successful)
 }
 END_TEST
 
+START_TEST(test_tap_fails)
+{
+	ck_assert_int_ne(0, 0);
+}
+END_TEST
+
 static Suite *
 suite_tap_new()
 {
@@ -13,6 +19,7 @@ suite_tap_new()
 	TCase *case_tap = tcase_create("test_tap");
 
 	tcase_add_test(case_tap, test_tap_successful);
+	tcase_add_test(case_tap, test_tap_fails);
 
 	suite_add_tcase(suite_tap, case_tap);
 	return suite_tap;
