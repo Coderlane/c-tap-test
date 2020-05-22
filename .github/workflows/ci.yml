@@ -35,7 +35,7 @@ jobs:
         tap_directory: '${{ runner.workspace }}/build/'
 
     - uses: actions/github-script@v1
-      if: ${{ failed() }} && ${{ github.event_name == 'pull_request' }}
+      if: always() && github.event_name == 'pull_request'
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
